@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.14 on win32)" generated="2026-07-25T12:19:01.313465" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste API" source="C:\Verity\Teste_API">
+<suite id="s1-s1" name="DeletarUsuario" source="C:\Verity\Teste_API\DeletarUsuario.robot">
+<test id="s1-s1-t1" name="CT03- Usuário com carrinho cadastrado" line="75">
+<kw name="Quando eu deleto um usuario com carrinho cadastrado">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-25T12:19:01.506464" level="INFO">&amp;{headers} = { Accept=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>Accept=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-25T12:19:01.505848" elapsed="0.000941"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2026-07-25T12:19:01.507542" level="INFO">${delet_usuarios} = usuarios/qbMqntef4iTOwWfg</msg>
+<var>${delet_usuarios}</var>
+<arg>${delet_usuarios}</arg>
+<arg>id_usuario</arg>
+<arg>${id}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2026-07-25T12:19:01.507102" elapsed="0.000624"/>
+</kw>
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2026-07-25T12:19:02.173691" level="INFO">DELETE Request : url=https://serverest.dev/usuarios/qbMqntef4iTOwWfg 
+ path_url=/usuarios/qbMqntef4iTOwWfg 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-07-25T12:19:02.174134" level="INFO">DELETE Response : url=https://serverest.dev/usuarios/qbMqntef4iTOwWfg 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '7b08a3b086917f772f18a9b9ba11ad82;o=1', 'date': 'Sat, 25 Jul 2026 15:19:03 GMT', 'server': 'Google Frontend', 'Content-Length': '46'} 
+ body={
+    "message": "Nenhum registro excluído"
+} 
+ </msg>
+<msg time="2026-07-25T12:19:02.174425" level="FAIL">Url: https://serverest.dev/usuarios/qbMqntef4iTOwWfg Expected status: 200 != 400</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${delet_usuarios}</arg>
+<arg>headers=&amp;{headers}</arg>
+<arg>expected_status=400</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="FAIL" start="2026-07-25T12:19:01.507956" elapsed="0.672657">Url: https://serverest.dev/usuarios/qbMqntef4iTOwWfg Expected status: 200 != 400</status>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${RESPONSE_CARRI}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2026-07-25T12:19:02.180896" elapsed="0.000144"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2026-07-25T12:19:02.181153" elapsed="0.000087"/>
+</return>
+<arg>id=qbMqntef4iTOwWfg</arg>
+<status status="FAIL" start="2026-07-25T12:19:01.505139" elapsed="0.676247">Url: https://serverest.dev/usuarios/qbMqntef4iTOwWfg Expected status: 200 != 400</status>
+</kw>
+<kw name="Então a API deve retornar a mensagem Não é permitido excluir usuário com carrinho cadastrado" source_name="Então a API deve retornar a mensagem ${mensagem_esperada}">
+<status status="NOT RUN" start="2026-07-25T12:19:02.181828" elapsed="0.000210"/>
+</kw>
+<status status="FAIL" start="2026-07-25T12:19:01.502287" elapsed="0.680057">Url: https://serverest.dev/usuarios/qbMqntef4iTOwWfg Expected status: 200 != 400</status>
+</test>
+<status status="FAIL" start="2026-07-25T12:19:01.357820" elapsed="0.840050"/>
+</suite>
+<status status="FAIL" start="2026-07-25T12:19:01.318078" elapsed="0.882715"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste API" id="s1" pass="0" fail="1" skip="0">Teste API</stat>
+<stat name="DeletarUsuario" id="s1-s1" pass="0" fail="1" skip="0">Teste API.DeletarUsuario</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
